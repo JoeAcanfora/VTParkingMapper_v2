@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jacanfora.vtparkingmappera_v2.controller.MapsActivity" >
+
+    <item
+        android:id="@+id/change_credential"
+        android:orderInCategory="100"
+        android:title="Edit Credential"/>
+    <item
+        android:id="@+id/compare_passes"
+        android:orderInCategory="90"
+        android:title="Compare Passes"/>
+</menu>
