@@ -3,10 +3,10 @@ package com.jacanfora.vtparkingmappera_v2.model;
 /**
  * Created by jacanfora on 8/22/16.
  */
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.android.gms.maps.model.LatLng;
 
 public class LotsModel {
 
@@ -400,7 +400,7 @@ public class LotsModel {
 
         double min_distance = -1.0;
         ParkingLot closest = lots.get(0);
-        for (ParkingLot lot : lots){
+        for (ParkingLot lot : lots) {
             double distance = calcDistance(lot.getCenter(), currLoc);
             if (distance < min_distance) {
                 min_distance = distance;

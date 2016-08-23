@@ -28,6 +28,7 @@ import com.jacanfora.vtparkingmappera_v2.model.ApplicationSingleton;
 import com.jacanfora.vtparkingmappera_v2.model.GPSTracker;
 import com.jacanfora.vtparkingmappera_v2.model.LotsModel;
 import com.jacanfora.vtparkingmappera_v2.model.ParkingLot;
+import com.jacanfora.vtparkingmappera_v2.task.RestTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,8 @@ public class MapsActivity extends FragmentActivity
     }
 
     private void drawLots() {
+
+        getContent();
         lots = new LotsModel();
         for (ParkingLot lot : lots.getLots()) {
             PolygonOptions p = new PolygonOptions();
@@ -98,6 +101,23 @@ public class MapsActivity extends FragmentActivity
                 p.fillColor(Color.RED);
             }
             map.addPolygon(p);
+        }
+    }
+
+    private void getContent()
+    {
+        // the request
+        try
+        {
+            //HttpGet httpGet = new HttpGet(new URI());
+            String url = "http://joeacanfora.pythonanywhere.com/pointstables-by-lottables.json?format=json";
+            RestTask task = new RestTask();
+            task.execute(url);
+            //progress = ProgressDialog.show(getActivity(), "Getting Data ...", "Waiting For Results...", true);
+        }
+        catch (Exception e)
+        {
+            System.err.print(e.getMessage());
         }
     }
 
@@ -210,4 +230,7 @@ public class MapsActivity extends FragmentActivity
         drawLots();
 
     }
+
+
+
 }
